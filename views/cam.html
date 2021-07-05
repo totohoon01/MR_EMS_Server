@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script defer src="../js/camScripts.js"></script> -->
+    <!-- <link rel="stylesheet" href="../css/cam1.css"> -->
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="btn_container">
+        <button id='btn1' class='button'>Camera1</button>
+        <button id='btn2' class='button'>Camera2</button>
+        <button id='btn3' class='button'>Camera3</button>
+        <button id='btn4' class='button'>Camera4</button>
+    </div>
+
+    <div class="video_container">
+        <div class="video">
+            <div class="video_title">Video1</div>
+            <video class="video_source" id='cam1' 
+            src="https://192.168.0.39/api/holographic/stream/live_high.mp4?holo=true&pv=true&mic=true&loopback=true&RenderFromCamera=true"
+            width="1024px"
+            height="580px"
+            autoplay
+            controls
+            muted></video>
+        </div>
+        <div class="video">
+            <div class="video_title">Video2</div>
+            <video class="video_source" id='cam2' 
+            src="https://youtu.be/DX8albsyEPQ"
+            width="1024px"
+            height="580px"
+            autoplay
+            controls
+            muted> 
+        </video>
+        </div>
+        <div class="video">
+            <div class="video_title">Video3</div>
+            <video class="video_source" id='cam3' 
+            src="https://youtu.be/DX8albsyEPQ"
+            width="1024px"
+            height="580px"
+            autoplay
+            controls
+            muted>
+        </video>
+        </div>
+        <div class="video" >
+            <div class="video_title">Video4</div>
+            <video class="video_source" id='cam4' 
+            src="https://youtu.be/DX8albsyEPQ"
+            width="1024px"
+            height="580px"
+            autoplay
+            controls
+            muted>
+        </video>
+        </div>
+    </div>
+    <script>
+        const btn1 = document.getElementById('btn1');
+        btn1.addEventListener('click', () =>{
+            const cam1 = document.getElementById('cam1')
+            cam1.requestFullscreen();
+        });
+
+        const btn2 = document.getElementById('btn2');
+        btn2.addEventListener('click', () =>{
+            const cam2 = document.getElementById('cam2')
+            cam2.requestFullscreen();
+        });
+
+        const btn3 = document.getElementById('btn3');
+        btn3.addEventListener('click', () =>{
+            const cam3 = document.getElementById('cam3')
+            cam3.requestFullscreen();
+        });
+
+        const btn4 = document.getElementById('btn4');
+        btn4.addEventListener('click', () =>{
+            const cam4 = document.getElementById('cam4')
+            cam4.requestFullscreen();
+        });
+    </script>
+    <style>
+    .btn_container {
+        margin: 10px;
+        padding: 5px;
+    }
+    .button {
+        width: 200px;
+        height: 50px;
+        margin-right: 10px;
+        font-size: 20px;
+    }
+
+    .video_container {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        background-color: beige;
+    }
+
+    .video {
+        display: block;
+        text-align: center;
+        width: 50%;
+    }
+    .video .video_title {
+        font-weight: bold;
+    }
+    .video .video_source {
+        background-color: black;
+    }
+    </style>
+</body>
+
+</html>

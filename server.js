@@ -17,6 +17,7 @@ app.set('view engine', 'ejs');
 const temp = {};
 fs.writeFileSync('position.json', JSON.stringify(temp));
 fs.writeFileSync('nav.json', JSON.stringify(temp));
+fs.writeFileSync('bool.json', JSON.stringify(temp));
 
 //클라이언트 -> 서버
 app.post('/client2server', (req, res) => {
@@ -47,6 +48,16 @@ app.post('/server2client', (req, res) => {
 //홀로렌즈 -> 웹 영상
 app.get('/cam1', (req, res) => {
   res.redirect('https://192.168.0.39/api/holographic/stream/live_high.mp4?holo=true&pv=true&mic=true&loopback=true&RenderFromCamera=true');
+});
+
+app.post('/bool2server', (req, res) =>{
+  fs.writeFileSync('bool.json', JSON.stringify(req.body));
+  res.send('is_happening');
+});
+
+app.post('/bool2client', (req, res) =>{
+  const temp = fs.readFileSync('bool.json');
+  res.send(temp.toString());
 });
 
 //README
